@@ -1,11 +1,12 @@
 {
   "sections": {
-    "hero_banner": {
+    "hero_split": {
       "type": "hero-banner-split",
       "settings": {
         "preheading": "San Diego • Residential & Commercial",
         "heading": "BRINGING SHINE TO YOUR SPACE",
         "subheading": "Professional, insured, background-checked cleaners. Flat-rate packages. 100% Satisfaction Guarantee.",
+        "bg": "#e6f2fb",
         "cta1_label": "REQUEST A QUOTE",
         "cta1_link": "/pages/request-a-quote",
         "cta1_color": "#ff7a00",
@@ -14,21 +15,144 @@
         "image": "shopify://shop_images/FBFC46CF-F14E-4D19-A3C6-8B770C19532B.png"
       }
     },
-    "why_choose_us_and_form": {
+    "why_contact": {
       "type": "why-choose-contact",
+      "blocks": {
+        "bullet1": {
+          "type": "bullet",
+          "settings": {
+            "text": "Locally owned & operated"
+          }
+        },
+        "bullet2": {
+          "type": "bullet",
+          "settings": {
+            "text": "Background-checked, insured cleaners"
+          }
+        },
+        "bullet3": {
+          "type": "bullet",
+          "settings": {
+            "text": "No hourly surprises — Flat rate packages"
+          }
+        },
+        "bullet4": {
+          "type": "bullet",
+          "settings": {
+            "text": "100% Satisfaction Guarantee"
+          }
+        }
+      },
+      "block_order": ["bullet1", "bullet2", "bullet3", "bullet4"],
       "settings": {
         "title": "WHY CHOOSE US",
+        "about_label": "Learn more — About Us",
+        "about_url": "/pages/about",
         "form_heading": "INSTANT QUOTE REQUEST"
       }
     },
-    "services_grid": {
+    "services": {
       "type": "services-grid",
+      "blocks": {
+        "service1": {
+          "type": "service_card",
+          "settings": {
+            "icon": "🏠",
+            "title": "House & Apartment Cleaning",
+            "description": "Weekly / Biweekly, one-time."
+          }
+        },
+        "service2": {
+          "type": "service_card",
+          "settings": {
+            "icon": "📦",
+            "title": "Move In/Out Cleaning",
+            "description": "No hourly surprise fees."
+          }
+        },
+        "service3": {
+          "type": "service_card",
+          "settings": {
+            "icon": "🧽",
+            "title": "Deep Cleaning",
+            "description": "At cost-1"
+          }
+        },
+        "service4": {
+          "type": "service_card",
+          "settings": {
+            "icon": "🪟",
+            "title": "Window Cleaning",
+            "description": "Post Construction Junk Removal"
+          }
+        },
+        "service5": {
+          "type": "service_card",
+          "settings": {
+            "icon": "🏢",
+            "title": "Commercial Cleaning",
+            "description": "Office and commercial spaces"
+          }
+        },
+        "service6": {
+          "type": "service_card",
+          "settings": {
+            "icon": "🔨",
+            "title": "Post-Construction",
+            "description": "Construction cleanup services"
+          }
+        },
+        "service7": {
+          "type": "service_card",
+          "settings": {
+            "icon": "🎄",
+            "title": "Holiday Cleanup",
+            "description": "Thanksgiving, Christmas."
+          }
+        },
+        "service8": {
+          "type": "service_card",
+          "settings": {
+            "icon": "➕",
+            "title": "Add-ons",
+            "description": "Declure, For: Basic/litter Laundry*, Fold"
+          }
+        }
+      },
+      "block_order": ["service1", "service2", "service3", "service4", "service5", "service6", "service7", "service8"],
       "settings": {
         "heading": "OUR CLEANING SERVICES"
       }
     },
-    "customer_reviews": {
+    "reviews": {
       "type": "customer-reviews",
+      "blocks": {
+        "review1": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "They healpus move outrout stress free!",
+            "author": "Darlive"
+          }
+        },
+        "review2": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "Professional and thorough service every time!",
+            "author": "Sarah M."
+          }
+        },
+        "review3": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "Best cleaning service in San Diego!",
+            "author": "Mike R."
+          }
+        }
+      },
+      "block_order": ["review1", "review2", "review3"],
       "settings": {
         "heading": "CUSTOMER REVIEWS"
       }
@@ -45,11 +169,5 @@
       }
     }
   },
-  "order": [
-    "hero_banner",
-    "why_choose_us_and_form", 
-    "services_grid",
-    "customer_reviews",
-    "sms_popup"
-  ]
+  "order": ["hero_split", "why_contact", "services", "reviews", "sms_popup"]
 }

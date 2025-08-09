@@ -1,0 +1,118 @@
+{
+ "sections": {
+   "hero": {
+     "type": "hero-banner-split",
+     "settings": {
+       "preheading": "San Diego • Residential & Commercial",
+       "heading": "Our Cleaning Services",
+       "subheading": "Professional cleaning services tailored to your needs. From weekly maintenance to deep cleans and special projects.",
+       "bg": "#e6f2fb",
+       "cta1_label": "Request Quote",
+       "cta1_link": "/pages/request-a-quote",
+       "cta1_color": "#ff7a00",
+       "cta2_label": "Call Now",
+       "cta2_link": "tel:6198001453"
+     }
+   },
+   "main": {
+     "type": "main-page"
+   },
+   "services": {
+     "type": "services-grid",
+     "blocks": {
+       "service1": {
+         "type": "service_card",
+         "settings": {
+           "icon": "��",
+           "title": "House & Apartment Cleaning",
+           "description": "Regular weekly or bi-weekly cleaning for your home. Includes all standard cleaning tasks to keep your space spotless.",
+           "link_text": "Learn More",
+           "link_url": "/pages/house-cleaning"
+         }
+       },
+       "service2": {
+         "type": "service_card",
+         "settings": {
+           "icon": "📦",
+           "title": "Move In/Out Cleaning",
+           "description": "Deep cleaning for moving transitions. Perfect for landlords, tenants, and new homeowners.",
+           "link_text": "Learn More",
+           "link_url": "/pages/move-cleaning"
+         }
+       },
+       "service3": {
+         "type": "service_card",
+         "settings": {
+           "icon": "🧽",
+           "title": "Deep Cleaning",
+           "description": "Comprehensive top-to-bottom cleaning. Perfect for first-time service or seasonal deep cleans.",
+           "link_text": "Learn More",
+           "link_url": "/pages/deep-cleaning"
+         }
+       },
+       "service4": {
+         "type": "service_card",
+         "settings": {
+           "icon": "🪟",
+           "title": "Window Cleaning",
+           "description": "Interior and exterior window cleaning for crystal-clear views.",
+           "link_text": "Learn More",
+           "link_url": "/pages/window-cleaning"
+         }
+       },
+       "service5": {
+         "type": "service_card",
+         "settings": {
+           "icon": "🏢",
+           "title": "Commercial Cleaning",
+           "description": "Professional office and commercial space cleaning. Regular or one-time service available.",
+           "link_text": "Learn More",
+           "link_url": "/pages/commercial-cleaning"
+         }
+       },
+       "service6": {
+         "type": "service_card",
+         "settings": {
+           "icon": "🔨",
+           "title": "Post-Construction Cleanup",
+           "description": "Specialized cleaning after construction or renovation projects.",
+           "link_text": "Learn More",
+           "link_url": "/pages/construction-cleanup"
+         }
+       },
+       "service7": {
+         "type": "service_card",
+         "settings": {
+           "icon": "🎄",
+           "title": "Holiday Cleanup",
+           "description": "Pre and post-holiday cleaning services. Get ready for guests or clean up after celebrations.",
+           "link_text": "Learn More",
+           "link_url": "/pages/holiday-cleaning"
+         }
+       },
+       "service8": {
+         "type": "service_card",
+         "settings": {
+           "icon": "➕",
+           "title": "Add-on Services",
+           "description": "Laundry, organizing, decluttering, and other specialty services to complement your cleaning.",
+           "link_text": "Learn More",
+           "link_url": "/pages/add-ons"
+         }
+       }
+     },
+     "block_order": ["service1", "service2", "service3", "service4", "service5", "service6", "service7", "service8"],
+     "settings": {
+       "heading": "OUR CLEANING SERVICES",
+       "subheading": "Tailored solutions for homes, offices, move-outs & more."
+     }
+   },
+   "pricing": {
+     "type": "cleaning-plans"
+   },
+   "reviews": {
+     "type": "customer-reviews"
+   }
+ },
+ "order": ["hero", "main", "services", "pricing", "reviews"]
+}

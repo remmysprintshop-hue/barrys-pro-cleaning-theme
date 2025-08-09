@@ -1,0 +1,89 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero-banner-split",
+      "settings": {
+        "preheading": "San Diego • Professional Cleaning",
+        "heading": "Get Your Free Quote",
+        "subheading": "Professional, insured, background-checked cleaners. Flat-rate packages. 100% Satisfaction Guarantee.",
+        "bg": "#e6f2fb",
+        "cta1_label": "Call Now",
+        "cta1_link": "tel:6198001453",
+        "cta1_color": "#ff7a00",
+        "cta2_label": "View Services",
+        "cta2_link": "/pages/services"
+      }
+    },
+    "jobber_form": {
+      "type": "jobber-request",
+      "settings": {
+        "heading": "Request Your Free Quote",
+        "subheading": "Fill out the form below and we'll get back to you with a custom quote within 24 hours."
+      }
+    } },
+   "plans": {
+     "type": "cleaning-plans",
+     "blocks": {
+       "plan1": {
+         "type": "plan",
+         "settings": {
+           "title": "Standard Weekly/Bi-Weekly",
+           "price_label": "Starting at $120",
+           "featured": false,
+           "feature1": "All standard cleaning tasks",
+           "feature2": "Kitchen & bathroom deep clean",
+           "feature3": "Vacuum all accessible floors",
+           "feature4": "Dust all surfaces",
+           "feature5": "Take out trash",
+           "feature6": "Make beds",
+           "cta_label": "Get Quote",
+           "cta_link": "/pages/request-a-quote"
+         }
+       },
+       "plan2": {
+         "type": "plan",
+         "settings": {
+           "title": "Deep Clean",
+           "price_label": "Starting at $200",
+           "featured": true,
+           "feature1": "Everything in Standard",
+           "feature2": "Inside oven cleaning",
+           "feature3": "Inside refrigerator cleaning",
+           "feature4": "Baseboards wiped down",
+           "feature5": "Light fixtures cleaned",
+           "feature6": "Window sills cleaned",
+           "feature7": "Cabinet fronts wiped",
+           "feature8": "Detailed bathroom scrub",
+           "cta_label": "Book Deep Clean",
+           "cta_link": "/pages/request-a-quote"
+         }
+       },
+       "plan3": {
+         "type": "plan",
+         "settings": {
+           "title": "Premium Package",
+           "price_label": "Custom Quote",
+           "featured": false,
+           "feature1": "Everything in Deep Clean",
+           "feature2": "Window cleaning (interior)",
+           "feature3": "Organize closets & drawers",
+           "feature4": "Laundry wash & fold",
+           "feature5": "Garage organization",
+           "feature6": "Move-in/out prep",
+           "feature7": "Post-construction cleanup",
+           "feature8": "Priority scheduling",
+           "cta_label": "Contact Us",
+           "cta_link": "tel:6198001453"
+         }
+       }
+     },
+     "block_order": ["plan1", "plan2", "plan3"],
+     "settings": {
+       "heading": "Our Cleaning Plans",
+       "subheading": "Choose the perfect cleaning plan for your needs",
+       "bundle_note": "Bundle Window Cleaning with Deep or Commercial and Save!"
+     }
+   }
+ },
+ "order": ["hero", "jobber_form", "plans"]
+}

@@ -1,0 +1,78 @@
+<section class="section cleaning-plans">
+  <div class="page-width">
+    <div class="section-header text-center">
+      <h2 class="h2">{{ section.settings.heading | default: 'Our Cleaning Plans' }}</h2>
+      {% if section.settings.subheading != blank %}
+        <p>{{ section.settings.subheading }}</p>
+      {% endif %}
+    </div>
+    <div class="plans-grid">
+      {% for block in section.blocks %}
+        {% if block.type == 'plan' %}
+          <div class="plan-card">
+            {% if block.settings.featured %}
+              <div class="plan-featured">MOST POPULAR</div>
+            {% endif %}
+            <h3 class="h3">{{ block.settings.title }}</h3>
+            {% if block.settings.price_label != blank %}
+              <div class="plan-price" style="font-size:1.5rem; font-weight:700; color:var(--barry-navy,#0a2141); margin:8px 0 16px;">
+                {{ block.settings.price_label }}
+              </div>
+            {% endif %}
+            <ul style="margin:16px 0; padding-left:0; list-style:none;">
+              {% if block.settings.feature1 != blank %}<li style="margin:6px 0;">✓ {{ block.settings.feature1 }}</li>{% endif %}
+              {% if block.settings.feature2 != blank %}<li style="margin:6px 0;">✓ {{ block.settings.feature2 }}</li>{% endif %}
+              {% if block.settings.feature3 != blank %}<li style="margin:6px 0;">✓ {{ block.settings.feature3 }}</li>{% endif %}
+              {% if block.settings.feature4 != blank %}<li style="margin:6px 0;">✓ {{ block.settings.feature4 }}</li>{% endif %}
+              {% if block.settings.feature5 != blank %}<li style="margin:6px 0;">✓ {{ block.settings.feature5 }}</li>{% endif %}
+              {% if block.settings.feature6 != blank %}<li style="margin:6px 0;">✓ {{ block.settings.feature6 }}</li>{% endif %}
+              {% if block.settings.feature7 != blank %}<li style="margin:6px 0;">✓ {{ block.settings.feature7 }}</li>{% endif %}
+              {% if block.settings.feature8 != blank %}<li style="margin:6px 0;">✓ {{ block.settings.feature8 }}</li>{% endif %}
+            </ul>
+            {% if block.settings.cta_label and block.settings.cta_link %}
+              <a href="{{ block.settings.cta_link }}" class="button button--primary" style="width:100%; text-align:center; margin-top:16px;">
+                {{ block.settings.cta_label }}
+              </a>
+            {% endif %}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+    {% if section.settings.bundle_note != blank %}
+      <div class="text-center" style="margin-top:24px; padding:16px; background:#f9fafb; border-radius:8px;">
+        <p style="margin:0; font-weight:600; color:var(--barry-navy,#0a2141);">{{ section.settings.bundle_note }}</p>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Cleaning plans",
+  "settings": [
+    { "type":"text", "id":"heading", "label":"Heading", "default":"Our Cleaning Plans" },
+    { "type":"textarea", "id":"subheading", "label":"Subheading", "default":"Choose the perfect cleaning plan for your needs" },
+    { "type":"text", "id":"bundle_note", "label":"Bundle note", "default":"Bundle Window Cleaning with Deep or Commercial and Save!" }
+  ],
+  "blocks": [
+    { "type":"plan", "name":"Cleaning plan", "settings":[
+      { "type":"text", "id":"title", "label":"Plan title", "default":"Standard Weekly/Bi-Weekly" },
+      { "type":"text", "id":"price_label", "label":"Price label", "default":"Starting at $120" },
+      { "type":"checkbox", "id":"featured", "label":"Mark as featured", "default":false },
+      { "type":"text", "id":"feature1", "label":"Feature 1", "default":"All standard cleaning tasks" },
+      { "type":"text", "id":"feature2", "label":"Feature 2", "default":"Kitchen & bathroom deep clean" },
+      { "type":"text", "id":"feature3", "label":"Feature 3", "default":"Vacuum all accessible floors" },
+      { "type":"text", "id":"feature4", "label":"Feature 4", "default":"Dust all surfaces" },
+      { "type":"text", "id":"feature5", "label":"Feature 5", "default":"Take out trash" },
+      { "type":"text", "id":"feature6", "label":"Feature 6", "default":"Make beds" },
+      { "type":"text", "id":"feature7", "label":"Feature 7" },
+      { "type":"text", "id":"feature8", "label":"Feature 8" },
+      { "type":"text", "id":"cta_label", "label":"CTA button text", "default":"Get Quote" },
+      { "type":"url", "id":"cta_link", "label":"CTA link", "default":"/pages/request-a-quote" }
+    ]}
+  ],
+  "presets": [{ "name":"Cleaning plans", "blocks":[
+    {"type":"plan"}, {"type":"plan"}, {"type":"plan"}
+  ]}]
+}
+{% endschema %}

@@ -1,0 +1,35 @@
+{
+ "sections": {
+   "hero": {
+     "type": "hero-banner-split",
+     "settings": {
+       "preheading": "San Diego • Customer Testimonials",
+       "heading": "What Our Customers Say",
+       "subheading": "Real reviews from real customers who trust Barry's Pro Cleaning with their homes and businesses.",
+       "bg": "#e6f2fb",
+       "cta1_label": "Get Quote",
+       "cta1_link": "/pages/request-a-quote",
+       "cta1_color": "#ff7a00",
+       "cta2_label": "Call Now",
+       "cta2_link": "tel:6198001453"
+     }
+   },
+   "main": {
+     "type": "main-page"
+   },
+   "reviews": {
+     "type": "customer-reviews",
+     "settings": {
+       "heading": "Customer Reviews"
+     }
+   },
+   "contact": {
+     "type": "jobber-request",
+     "settings": {
+       "heading": "Ready to experience the difference?",
+       "subheading": "Join our satisfied customers and get your free quote today."
+     }
+   }
+ },
+ "order": ["hero", "main", "reviews", "contact"]
+}

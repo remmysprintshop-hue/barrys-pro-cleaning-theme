@@ -1,0 +1,55 @@
+<section class="section customer-reviews">
+  <div class="page-width">
+    <div class="section-header text-center">
+      <h2 class="h2">{{ section.settings.heading | default: 'Customer Reviews' }}</h2>
+    </div>
+    <div class="reviews-grid">
+      {% for block in section.blocks %}
+        {% if block.type == 'review' %}
+          <div class="review-card">
+            {% if block.settings.image != blank %}
+              <div class="review-card__image">
+                {{ block.settings.image | image_url: width: 300 | image_tag: loading: 'lazy' }}
+              </div>
+            {% endif %}
+            <div class="review-card__content">
+              {% if block.settings.rating > 0 %}
+                <div class="review-card__stars">
+                  {% for i in (1..5) %}
+                    {% if i <= block.settings.rating %}⭐{% else %}☆{% endif %}
+                  {% endfor %}
+                </div>
+              {% endif %}
+              {% if block.settings.quote != blank %}
+                <blockquote class="review-card__quote">"{{ block.settings.quote }}"</blockquote>
+              {% endif %}
+              {% if block.settings.author != blank %}
+                <cite class="review-card__author">— {{ block.settings.author }}</cite>
+              {% endif %}
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Customer reviews",
+  "settings": [
+    { "type":"text", "id":"heading", "label":"Heading", "default":"Customer Reviews" }
+  ],
+  "blocks": [
+    { "type":"review", "name":"Review", "settings":[
+      { "type":"image_picker", "id":"image", "label":"Photo (optional)" },
+      { "type":"range", "id":"rating", "label":"Star rating", "min":1, "max":5, "step":1, "default":5 },
+      { "type":"textarea", "id":"quote", "label":"Review quote", "default":"They healpus move outrout stress free!" },
+      { "type":"text", "id":"author", "label":"Author name", "default":"Darlive" }
+    ]}
+  ],
+  "presets": [{ "name":"Customer reviews", "blocks":[
+    {"type":"review"}, {"type":"review"}, {"type":"review"}
+  ]}]
+}
+{% endschema %}

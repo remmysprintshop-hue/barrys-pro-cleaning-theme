@@ -1,0 +1,59 @@
+{
+ "sections": {
+   "hero": {
+     "type": "hero-banner-split",
+     "settings": {
+       "preheading": "San Diego • Family Owned",
+       "heading": "About Barry's Pro Cleaning",
+       "subheading": "We're a locally owned and operated cleaning company dedicated to bringing shine to your space with professional, reliable service.",
+       "bg": "#e6f2fb",
+       "cta1_label": "Get Quote",
+       "cta1_link": "/pages/request-a-quote",
+       "cta1_color": "#ff7a00",
+       "cta2_label": "Call Us",
+       "cta2_link": "tel:6198001453"
+     }
+   },
+   "main": {
+     "type": "main-page"
+   },
+   "why_choose": {
+     "type": "why-choose-contact",
+     "blocks": {
+       "bullet1": {
+         "type": "bullet",
+         "settings": {
+           "text": "Licensed & insured for your peace of mind"
+         }
+       },
+       "bullet2": {
+         "type": "bullet",
+         "settings": {
+           "text": "Background-checked, professional cleaners"
+         }
+       },
+       "bullet3": {
+         "type": "bullet",
+         "settings": {
+           "text": "Eco-friendly cleaning products available"
+         }
+       },
+       "bullet4": {
+         "type": "bullet",
+         "settings": {
+           "text": "Flexible scheduling to fit your needs"
+         }
+       }
+     },
+     "block_order": ["bullet1", "bullet2", "bullet3", "bullet4"],
+     "settings": {
+       "title": "Why Choose Barry's Pro Cleaning?",
+       "form_heading": "Get Your Free Quote"
+     }
+   },
+   "reviews": {
+     "type": "customer-reviews"
+   }
+ },
+ "order": ["hero", "main", "why_choose", "reviews"]
+}

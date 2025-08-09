@@ -1,88 +1,51 @@
-<section class="why-choose-contact page-width">
-  <div style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between; align-items: flex-start; padding: 60px 0;">
-    
-    <!-- Left: Why Choose Us -->
-    <div style="flex: 1; min-width: 300px;">
-      <h2 style="font-size: 2rem; margin-bottom: 20px;">Why Choose Us</h2>
-      <ul style="line-height: 2em; padding-left: 20px; font-size: 1.1rem;">
-        <li>{{ section.settings.bullet_1 }}</li>
-        <li>{{ section.settings.bullet_2 }}</li>
-        <li>{{ section.settings.bullet_3 }}</li>
-        <li>{{ section.settings.bullet_4 }}</li>
-      </ul>
-      {% if section.settings.about_us_link != blank %}
-        <p style="margin-top: 20px;">
-          <a href="{{ section.settings.about_us_link }}" class="button button--secondary">Learn More — About Us</a>
-        </p>
-      {% endif %}
-    </div>
-
-    <!-- Right: Jobber Form -->
-    <div style="flex: 1; min-width: 300px;">
-      <h3 style="font-size: 1.5rem; margin-bottom: 15px;">{{ section.settings.form_heading }}</h3>
-      <div id="cde0e6c9-6256-4c85-812a-cc4f328218f9"></div>
-      <link rel="stylesheet" href="https://d3ey4dbjkt2f6s.cloudfront.net/assets/external/work_request_embed.css" media="screen" />
-      <script src="https://d3ey4dbjkt2f6s.cloudfront.net/assets/static_link/work_request_embed_snippet.js"
-              clienthub_id="cde0e6c9-6256-4c85-812a-cc4f328218f9"
-              form_url="https://clienthub.getjobber.com/client_hubs/cde0e6c9-6256-4c85-812a-cc4f328218f9/public/work_request/embedded_work_request_form"></script>
-      <p style="font-size: 0.85rem; margin-top: 10px; color: #555;">
-        {{ section.settings.form_disclaimer }}
-      </p>
+<section class="section why-contact">
+  <div class="page-width">
+    <div class="grid grid--1-col grid--2-col-tablet">
+      <div class="grid__item">
+        <h2 class="h2">{{ section.settings.title | default: "Why choose Barry's Pro Cleaning?" }}</h2>
+        <ul class="why-contact__bullets">
+          {% for block in section.blocks %}
+            {% if block.type == 'bullet' %}
+              <li>{{ block.settings.text }}</li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+        {% if section.settings.about_label and section.settings.about_url %}
+          <a class="link animate-arrow" href="{{ section.settings.about_url }}">{{ section.settings.about_label }} →</a>
+        {% endif %}
+      </div>
+      <div class="grid__item">
+        <h3 class="h3">{{ section.settings.form_heading | default: "Instant Quote Request" }}</h3>
+        <div id="cde0e6c9-6256-4c85-812a-cc4f328218f9"></div>
+        <link rel="stylesheet" href="https://d3ey4dbjkt2f6s.cloudfront.net/assets/external/work_request_embed.css" media="screen" />
+        <script src="https://d3ey4dbjkt2f6s.cloudfront.net/assets/static_link/work_request_embed_snippet.js"
+          clienthub_id="cde0e6c9-6256-4c85-812a-cc4f328218f9"
+          form_url="https://clienthub.getjobber.com/client_hubs/cde0e6c9-6256-4c85-812a-cc4f328218f9/public/work_request/embedded_work_request_form">
+        </script>
+        {% if section.settings.disclaimer != blank %}
+          <p class="why-contact__disclaimer">{{ section.settings.disclaimer }}</p>
+        {% endif %}
+      </div>
     </div>
   </div>
 </section>
+
 {% schema %}
 {
-  "name": "Why Choose + Quote",
-  "tag": "section",
-  "class": "section",
+  "name": "Why + Quote form",
   "settings": [
-    {
-      "type": "text",
-      "id": "bullet_1",
-      "label": "Bullet Point 1",
-      "default": "Locally owned & operated"
-    },
-    {
-      "type": "text",
-      "id": "bullet_2",
-      "label": "Bullet Point 2",
-      "default": "Background-checked, insured cleaners"
-    },
-    {
-      "type": "text",
-      "id": "bullet_3",
-      "label": "Bullet Point 3",
-      "default": "No hourly surprises — Flat rate packages"
-    },
-    {
-      "type": "text",
-      "id": "bullet_4",
-      "label": "Bullet Point 4",
-      "default": "100% Satisfaction Guarantee"
-    },
-    {
-      "type": "url",
-      "id": "about_us_link",
-      "label": "Link to About Us Page"
-    },
-    {
-      "type": "text",
-      "id": "form_heading",
-      "label": "Form Heading",
-      "default": "Instant Quote Request"
-    },
-    {
-      "type": "textarea",
-      "id": "form_disclaimer",
-      "label": "SMS Disclaimer",
-      "default": "By providing your phone number, you agree to receive promotional messages from Barry’s Pro Cleaning LLC. Message and data rates may apply."
-    }
+    { "type":"text", "id":"title", "label":"Left heading", "default":"Why choose Barry's Pro Cleaning?" },
+    { "type":"text", "id":"about_label", "label":"About link label", "default":"Learn More — About Us" },
+    { "type":"url", "id":"about_url", "label":"About link URL", "default":"/pages/about" },
+    { "type":"text", "id":"form_heading", "label":"Form heading", "default":"Instant Quote Request" },
+    { "type":"textarea", "id":"disclaimer", "label":"Disclaimer", "default":"You agree to receive promotional messages from Barry's Pro Cleaning LLC. You also agree to our Terms of Service and Privacy Policy. Msg Frequency varies. Msg and Data Rates may apply. Reply STOP to end or HELP for Help." }
   ],
-  "presets": [
-    {
-      "name": "Why Choose + Quote"
-    }
-  ]
+  "blocks":[
+    { "type":"bullet","name":"Bullet","settings":[{ "type":"text","id":"text","label":"Text","default":"Locally owned & operated" }]},
+    { "type":"bullet","name":"Bullet","settings":[{ "type":"text","id":"text","label":"Text","default":"Background-checked, insured cleaners" }]},
+    { "type":"bullet","name":"Bullet","settings":[{ "type":"text","id":"text","label":"Text","default":"No hourly surprises — Flat rate packages" }]},
+    { "type":"bullet","name":"Bullet","settings":[{ "type":"text","id":"text","label":"Text","default":"100% Satisfaction Guarantee" }]}
+  ],
+  "presets":[{ "name":"Why + Quote form", "blocks":[{"type":"bullet"},{"type":"bullet"},{"type":"bullet"},{"type":"bullet"}]}]
 }
 {% endschema %}

@@ -1,0 +1,33 @@
+<section class="section jobber-section">
+  <div class="page-width">
+    <div class="section-header text-center">
+      <h2 class="h2">{{ section.settings.heading | default: 'Request Your Quote' }}</h2>
+      {% if section.settings.subheading != blank %}
+        <p>{{ section.settings.subheading }}</p>
+      {% endif %}
+    </div>
+    <div style="max-width:600px; margin:0 auto;">
+      <div id="cde0e6c9-6256-4c85-812a-cc4f328218f9"></div>
+      <link rel="stylesheet" href="https://d3ey4dbjkt2f6s.cloudfront.net/assets/external/work_request_embed.css" media="screen" />
+      <script src="https://d3ey4dbjkt2f6s.cloudfront.net/assets/static_link/work_request_embed_snippet.js"
+        clienthub_id="cde0e6c9-6256-4c85-812a-cc4f328218f9"
+        form_url="https://clienthub.getjobber.com/client_hubs/cde0e6c9-6256-4c85-812a-cc4f328218f9/public/work_request/embedded_work_request_form">
+      </script>
+      {% if section.settings.disclaimer != blank %}
+        <p style="font-size:.85rem; color:#6b7280; margin-top:16px; text-align:center;">{{ section.settings.disclaimer }}</p>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Jobber request form",
+  "settings": [
+    { "type":"text", "id":"heading", "label":"Heading", "default":"Request Your Quote" },
+    { "type":"textarea", "id":"subheading", "label":"Subheading", "default":"Fill out the form below and we'll get back to you with a custom quote." },
+    { "type":"textarea", "id":"disclaimer", "label":"Disclaimer", "default":"You agree to receive promotional messages from Barry's Pro Cleaning LLC. You also agree to our Terms of Service and Privacy Policy. Msg Frequency varies. Msg and Data Rates may apply. Reply STOP to end or HELP for Help." }
+  ],
+  "presets": [{ "name":"Jobber request form" }]
+}
+{% endschema %}

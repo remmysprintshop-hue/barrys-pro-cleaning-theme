@@ -1,0 +1,29 @@
+{
+ "sections": {
+   "hero": {
+     "type": "hero-banner-split",
+     "settings": {
+       "preheading": "San Diego • Questions & Answers",
+       "heading": "Frequently Asked Questions",
+       "subheading": "Find answers to common questions about our cleaning services, pricing, and policies.",
+       "bg": "#e6f2fb",
+       "cta1_label": "Request Quote",
+       "cta1_link": "/pages/request-a-quote",
+       "cta1_color": "#ff7a00",
+       "cta2_label": "Contact Us",
+       "cta2_link": "tel:6198001453"
+     }
+   },
+   "main": {
+     "type": "main-page"
+   },
+   "contact_form": {
+     "type": "jobber-request",
+     "settings": {
+       "heading": "Still have questions?",
+       "subheading": "Contact us for personalized answers about your cleaning needs."
+     }
+   }
+ },
+ "order": ["hero", "main", "contact_form"]
+}

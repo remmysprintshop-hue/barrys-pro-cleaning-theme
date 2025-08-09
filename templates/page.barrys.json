@@ -1,0 +1,29 @@
+{
+  "sections": {
+    "hero": {
+      "type": "barrys-hero-split",
+      "settings": {}
+    },
+    "why_form": {
+      "type": "barrys-why-form",
+      "settings": {}
+    },
+    "services": {
+      "type": "barrys-services",
+      "settings": {}
+    },
+    "reviews": {
+      "type": "barrys-reviews",
+      "settings": {}
+    },
+    "sms_popup": {
+      "type": "barrys-sms-popup",
+      "settings": {}
+    },
+    "jobber": {
+      "type": "barrys-jobber",
+      "settings": {}
+    }
+  },
+  "order": ["hero", "why_form", "services", "reviews", "sms_popup", "jobber"]
+}

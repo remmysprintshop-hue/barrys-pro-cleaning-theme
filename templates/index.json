@@ -1,44 +1,166 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
-    "hero_banner": {
-      "type": "hero-banner",
+    "hero_split": {
+      "type": "hero-banner-split",
       "settings": {
+        "preheading": "San Diego • Residential & Commercial",
         "heading": "Bringing Shine to Your Space",
-        "button_label_1": "Request a Quote",
-        "button_link_1": "/pages/request-a-quote",
-        "button_style_secondary_1": false,
-        "button_label_2": "Call Now",
-        "button_link_2": "tel:6198001453",
-        "button_style_secondary_2": true,
-        "image": "shopify://shop_images/FBFC46CF-F14E-4D19-A3C6-8B770C19532B.png"
+        "subheading": "Professional, insured, background-checked cleaners. Flat-rate packages. 100% Satisfaction Guarantee.",
+        "bg": "#e6f2fb",
+        "cta1_label": "Request a Quote",
+        "cta1_link": "/pages/request-a-quote",
+        "cta1_color": "#ff7a00",
+        "cta2_label": "Call Now",
+        "cta2_link": "tel:6198001453"
       }
     },
-    "why_choose_us_and_form": {
+    "why_contact": {
       "type": "why-choose-contact",
-      "settings": {}
+      "blocks": {
+        "bullet1": {
+          "type": "bullet",
+          "settings": {
+            "text": "Locally owned & operated"
+          }
+        },
+        "bullet2": {
+          "type": "bullet",
+          "settings": {
+            "text": "Background-checked, insured cleaners"
+          }
+        },
+        "bullet3": {
+          "type": "bullet",
+          "settings": {
+            "text": "No hourly surprises — Flat rate packages"
+          }
+        },
+        "bullet4": {
+          "type": "bullet",
+          "settings": {
+            "text": "100% Satisfaction Guarantee"
+          }
+        }
+      },
+      "block_order": ["bullet1", "bullet2", "bullet3", "bullet4"],
+      "settings": {
+        "title": "Why choose Barry's Pro Cleaning?",
+        "about_label": "Learn More — About Us",
+        "about_url": "/pages/about",
+        "form_heading": "Instant Quote Request"
+      }
     },
-    "services_grid": {
+    "services": {
       "type": "services-grid",
-      "settings": {}
+      "blocks": {
+        "service1": {
+          "type": "service_card",
+          "settings": {
+            "icon": "🏠",
+            "title": "House & Apartment Cleaning",
+            "description": "Weekly / Biweekly, one-time."
+          }
+        },
+        "service2": {
+          "type": "service_card",
+          "settings": {
+            "icon": "��",
+            "title": "Move In/Out Cleaning",
+            "description": "No hourly surprise fees."
+          }
+        },
+        "service3": {
+          "type": "service_card",
+          "settings": {
+            "icon": "🧽",
+            "title": "Deep Cleaning",
+            "description": "At cost-1"
+          }
+        },
+        "service4": {
+          "type": "service_card",
+          "settings": {
+            "icon": "🪟",
+            "title": "Window Cleaning",
+            "description": "Post Construction Junk Removal"
+          }
+        },
+        "service5": {
+          "type": "service_card",
+          "settings": {
+            "icon": "🏢",
+            "title": "Commercial Cleaning",
+            "description": "Office and commercial spaces"
+          }
+        },
+        "service6": {
+          "type": "service_card",
+          "settings": {
+            "icon": "🔨",
+            "title": "Post-Construction",
+            "description": "Construction cleanup services"
+          }
+        },
+        "service7": {
+          "type": "service_card",
+          "settings": {
+            "icon": "🎄",
+            "title": "Holiday Cleanup",
+            "description": "Thanksgiving, Christmas."
+          }
+        },
+        "service8": {
+          "type": "service_card",
+          "settings": {
+            "icon": "➕",
+            "title": "Add-ons",
+            "description": "Declure, For: Basic/litter Laundry*, Fold"
+          }
+        }
+      },
+      "block_order": ["service1", "service2", "service3", "service4", "service5", "service6", "service7", "service8"]
     },
-    "customer_reviews": {
+    "reviews": {
       "type": "customer-reviews",
-      "settings": {}
+      "blocks": {
+        "review1": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "They healpus move outrout stress free!",
+            "author": "Darlive"
+          }
+        },
+        "review2": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "Professional and thorough service every time!",
+            "author": "Sarah M."
+          }
+        },
+        "review3": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "Best cleaning service in San Diego!",
+            "author": "Mike R."
+          }
+        }
+      },
+      "block_order": ["review1", "review2", "review3"]
+    },
+    "sms_popup": {
+      "type": "sms-optin-popup",
+      "settings": {
+        "heading": "Get cleaning tips & offers",
+        "button": "Subscribe",
+        "delay": 5,
+        "cooldown_days": 1,
+        "home_only": true,
+        "consent": "You agree to receive promotional messages from Barry's Pro Cleaning LLC. You also agree to our Terms of Service and Privacy Policy. Msg Frequency varies. Msg & Data Rates may apply. Reply STOP to end or HELP for Help."
+      }
     }
   },
-  "order": [
-    "hero_banner",
-    "why_choose_us_and_form",
-    "services_grid",
-    "customer_reviews"
-  ]
+  "order": ["hero_split", "why_contact", "services", "reviews", "sms_popup"]
 }

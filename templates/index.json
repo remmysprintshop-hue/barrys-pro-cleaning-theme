@@ -192,7 +192,11 @@
     },
     "sms_optin_popup": {
       "type": "sms-optin-popup",
-      "settings": {}
+      "settings": {
+        "delay": 2,
+        "cooldown_days": 1,
+        "home_only": true
+      }
     }
   },
   "order": [

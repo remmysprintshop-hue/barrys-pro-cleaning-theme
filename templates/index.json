@@ -193,9 +193,12 @@
     "sms_optin_popup": {
       "type": "sms-optin-popup",
       "settings": {
-        "delay": 2,
-        "cooldown_days": 1,
-        "home_only": true
+        "delay": 4,
+        "cooldown_days": 14,
+        "home_only": true,
+        "heading": "Get Exclusive Offers",
+        "button": "Subscribe",
+        "consent": "You agree to receive promotional messages from Barry\u2019s Pro Cleaning LLC. Msg frequency varies. Msg & data rates may apply. Reply STOP to end or HELP for help."
       }
     }
   },

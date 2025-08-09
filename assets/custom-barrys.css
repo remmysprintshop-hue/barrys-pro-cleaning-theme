@@ -1,4 +1,104 @@
-/* Barry's Pro Cleaning tweaks */
-.button--primary { color:#fff }
-.header__heading a[href^="tel:"] { font-weight: 600; }
-/* Add more brand styles below */
+/* Barry's Pro Cleaning — custom site styles */
+:root{ 
+  --barry-accent: #ff7a00; 
+  --barry-navy: #0a2141; 
+}
+
+.button--primary{ color: #fff; }
+.header__heading a[href^="tel:"]{ font-weight: 600; }
+
+.badge-licensed{ 
+  display: inline-block; 
+  font-weight: 700; 
+  background: var(--barry-navy); 
+  color: #fff; 
+  padding: .35rem .6rem; 
+  border-radius: .5rem; 
+}
+
+.hero-split{ padding: 48px 0; }
+.hero-split__image{ width: 100%; height: auto; border-radius: 12px; }
+.hero-split__eyebrow{ 
+  text-transform: uppercase; 
+  letter-spacing: .06em; 
+  color: #6b7280; 
+  margin: 0 0 8px; 
+}
+.hero-split__subtext{ color: #374151; max-width: 48ch; }
+.hero-split__ctas{ 
+  display: flex; 
+  gap: 12px; 
+  margin-top: 16px; 
+  flex-wrap: wrap; 
+}
+
+.why-contact__bullets{ margin: 12px 0 20px; padding-left: 18px; }
+.why-contact__disclaimer{ font-size: .85rem; color: #6b7280; margin-top: 8px; }
+
+.services-grid{ 
+  display: grid; 
+  grid-template-columns: repeat(2, minmax(0, 1fr)); 
+  gap: 14px; 
+}
+@media (min-width: 900px){ 
+  .services-grid{ grid-template-columns: repeat(4, minmax(0, 1fr)); } 
+}
+
+.service-card{ 
+  border: 1px solid #e5e7eb; 
+  border-radius: 14px; 
+  padding: 16px; 
+  background: #fff; 
+}
+
+.reviews-grid{ 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+  gap: 14px; 
+}
+
+.review-card{
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 16px;
+  background: #fff;
+}
+
+.review-card__stars{
+  margin-bottom: 8px;
+}
+
+.review-card__quote{
+  font-style: italic;
+  margin: 8px 0;
+}
+
+.review-card__author{
+  font-weight: 600;
+  color: var(--barry-navy);
+}
+
+.plans-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin: 32px 0;
+}
+
+.plan-card{
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 24px;
+  background: #fff;
+  position: relative;
+}
+
+.plan-featured{
+  background: linear-gradient(135deg, #ff7a00, #ff9500);
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: .85rem;
+  margin-bottom: 16px;
+  display: inline-block;
+}

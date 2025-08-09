@@ -1,91 +1,149 @@
-{% comment %}
-  SMS Opt-in Popup (Barry's Pro Cleaning)
-  - Accessible dialog (ESC to close)
-  - Delay (seconds) + Cooldown (days)
-  - Optional "home page only"
-{% endcomment %}
-
+{% comment %} SMS Opt-in Popup {% endcomment %}
 {% assign is_home = request.page_type == 'index' %}
 {% if section.settings.home_only and is_home == false %}
-  {%- comment -%} Hidden on non-home pages {%- endcomment -%}
 {% else %}
 <div id="sms-optin" class="sms-optin" role="dialog" aria-modal="true" aria-labelledby="sms-optin-title" hidden>
   <button class="sms-optin__close" aria-label="Close dialog" type="button">×</button>
   <h3 id="sms-optin-title" class="h4">{{ section.settings.heading | default: "Get cleaning tips & offers" }}</h3>
-
   <form method="post" action="/contact#ContactFooter" accept-charset="UTF-8">
     <input type="hidden" name="form_type" value="contact">
     <input type="text" name="contact[name]" placeholder="Your name" required>
     <input type="tel" name="contact[phone]" placeholder="Mobile number" required>
     <input type="hidden" name="contact[body]" value="SMS opt-in via popup">
-    <button class="button button--primary" style="background:#ff7a00;border-color:#ff7a00">
-      {{ section.settings.button | default: "Subscribe" }}
-    </button>
+    <button class="button button--primary">{{ section.settings.button | default: "Subscribe" }}</button>
   </form>
-
   {% if section.settings.consent != blank %}
     <p class="sms-optin__fineprint">{{ section.settings.consent }}</p>
   {% endif %}
 </div>
 
 <style>
-  .sms-optin{ position:fixed; right:16px; bottom:16px; width:320px; z-index:50; background:#fff; border:1px solid #e5e7eb; border-radius:12px; padding:16px; box-shadow:0 10px 24px rgba(0,0,0,.08) }
-  .sms-optin input{ width:100%; margin-bottom:8px }
-  .sms-optin__close{ position:absolute; top:6px; right:8px; background:transparent; border:none; font-size:20px; cursor:pointer; line-height:1 }
-  .sms-optin__fineprint{ font-size:.75rem; color:#6b7280; margin-top:8px }
-  @media (max-width: 480px){ .sms-optin{ width: calc(100% - 24px); right:12px; left:12px } }
+.sms-optin{ 
+  position: fixed; 
+  right: 16px; 
+  bottom: 16px; 
+  width: 320px; 
+  z-index: 50; 
+  background: #fff; 
+  border: 1px solid #e5e7eb; 
+  border-radius: 12px; 
+  padding: 16px; 
+  box-shadow: 0 10px 24px rgba(0,0,0,.08);
+}
+.sms-optin input{ 
+  width: 100%; 
+  margin-bottom: 8px; 
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+}
+.sms-optin__close{ 
+  position: absolute; 
+  top: 6px; 
+  right: 8px; 
+  background: transparent; 
+  border: none; 
+  font-size: 20px; 
+  cursor: pointer; 
+  line-height: 1;
+  width: 24px;
+  height: 24px;
+}
+.sms-optin__fineprint{ 
+  font-size: .75rem; 
+  color: #6b7280; 
+  margin-top: 8px;
+}
+@media (max-width: 480px){ 
+  .sms-optin{ 
+    width: calc(100% - 24px); 
+    right: 12px; 
+    left: 12px;
+  } 
+}
 </style>
 
 <script>
 (function(){
-  var delayMs = ({{ section.settings.delay | default: 5 }} * 1000);
-  var cooldownDays = {{ section.settings.cooldown_days | default: 14 }};
-  var key = 'sms_optin_closed_v2';
-
+  var SETTINGS = {
+    delayMs: ({{ section.settings.delay | default: 5 }} * 1000),
+    cooldownDays: {{ section.settings.cooldown_days | default: 14 }},
+    storageKey: 'sms_optin_closed_v2'
+  };
+  
   function now(){ return Date.now(); }
-  function last(){ try { return parseInt(localStorage.getItem(key)||'0',10); } catch(e){ return 0; } }
-  function coolingDown(){
-    var ms = cooldownDays * 24 * 60 * 60 * 1000;
-    return last() && (now() - last()) < ms;
+  
+  function getTs(){ 
+    try{ 
+      return parseInt(localStorage.getItem(SETTINGS.storageKey) || '0', 10); 
+    } catch(e){ 
+      return 0; 
+    } 
   }
-  function show(){
-    var el = document.getElementById('sms-optin');
-    if(!el) return;
-    el.hidden = false;
-    var f = el.querySelector('input,button,select,textarea,a[href]');
-    if(f) f.focus();
-    document.addEventListener('keydown', onEsc);
+  
+  function setTs(){ 
+    try{ 
+      localStorage.setItem(SETTINGS.storageKey, String(now())); 
+    } catch(e){} 
   }
-  function hide(){
-    var el = document.getElementById('sms-optin');
-    if(!el) return;
-    el.hidden = true;
-    try { localStorage.setItem(key, String(now())); } catch(e){}
-    document.removeEventListener('keydown', onEsc);
+  
+  function isCoolingDown(){ 
+    var last = getTs(); 
+    if (!last) return false; 
+    var ms = SETTINGS.cooldownDays * 24 * 60 * 60 * 1000; 
+    return (now() - last) < ms; 
   }
-  function onEsc(e){ if(e.key === 'Escape') hide(); }
-
-  document.addEventListener('click', function(e){
-    if(e.target && e.target.classList.contains('sms-optin__close')) hide();
+  
+  function onEsc(e){ 
+    if (e.key === 'Escape'){ 
+      hide(); 
+    } 
+  }
+  
+  function show(){ 
+    var el = document.getElementById('sms-optin'); 
+    if (!el) return; 
+    el.hidden = false; 
+    var f = el.querySelector('input,button'); 
+    if (f) f.focus(); 
+    document.addEventListener('keydown', onEsc); 
+  }
+  
+  function hide(){ 
+    var el = document.getElementById('sms-optin'); 
+    if (!el) return; 
+    el.hidden = true; 
+    setTs(); 
+    document.removeEventListener('keydown', onEsc); 
+  }
+  
+  // Close button click handler
+  document.addEventListener('click', function(e){ 
+    if (e.target && e.target.classList.contains('sms-optin__close')) {
+      hide(); 
+    }
   });
-
-  if (coolingDown()) return;
-  setTimeout(show, delayMs);
+  
+  // Don't show if in cooldown period
+  if (isCoolingDown()) return; 
+  
+  // Show popup after delay
+  setTimeout(show, SETTINGS.delayMs);
 })();
 </script>
 
 {% schema %}
 {
   "name": "SMS opt-in popup",
-  "settings":[
+  "settings": [
     { "type":"text", "id":"heading", "label":"Heading", "default":"Get cleaning tips & offers" },
     { "type":"text", "id":"button", "label":"Button label", "default":"Subscribe" },
     { "type":"range", "id":"delay", "label":"Delay before showing (seconds)", "min":1, "max":30, "step":1, "default":5 },
     { "type":"range", "id":"cooldown_days", "label":"Cooldown days (re-show after)", "min":1, "max":60, "step":1, "default":14 },
     { "type":"checkbox", "id":"home_only", "label":"Show only on home page", "default":true },
-    { "type":"textarea", "id":"consent", "label":"Consent text", "default":"You agree to receive promotional messages from Barry’s Pro Cleaning LLC. Msg frequency varies. Msg & data rates may apply. Reply STOP to end or HELP for help." }
+    { "type":"textarea", "id":"consent", "label":"Consent text", "default":"You agree to receive promotional messages from Barry's Pro Cleaning LLC. You also agree to our Terms of Service and Privacy Policy. Msg Frequency varies. Msg & Data Rates may apply. Reply STOP to end or HELP for Help." }
   ],
-  "presets":[ { "name":"SMS opt-in popup" } ]
+  "presets": [{ "name":"SMS opt-in popup" }]
 }
 {% endschema %}
 {% endif %}

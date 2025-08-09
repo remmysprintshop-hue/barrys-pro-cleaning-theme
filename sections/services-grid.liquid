@@ -1,57 +1,51 @@
-<section class="section services-grid">
+<section class="section services-section">
   <div class="page-width">
-    <h2 class="h2">{{ section.settings.heading | default: "Our Services" }}</h2>
-    <div class="grid grid--2-col grid--3-col-desktop">
+    <div class="section-header text-center">
+      <h2 class="h2">{{ section.settings.heading | default: 'Our Cleaning Services' }}</h2>
+      {% if section.settings.subheading != blank %}
+        <p>{{ section.settings.subheading }}</p>
+      {% endif %}
+    </div>
+    <div class="services-grid">
       {% for block in section.blocks %}
-        <div class="grid__item">
-          <div class="card">
+        {% if block.type == 'service_card' %}
+          <div class="service-card">
             {% if block.settings.icon != blank %}
-              <div class="card__media">{{ block.settings.icon | image_url: width: 200 | image_tag: loading: 'lazy' }}</div>
+              <div class="service-card__icon" style="font-size:2rem; margin-bottom:8px;">{{ block.settings.icon }}</div>
             {% endif %}
-            <div class="card__content">
-              <h3 class="h4">{{ block.settings.title }}</h3>
-              <p>{{ block.settings.text }}</p>
-            </div>
+            <h3 class="h4">{{ block.settings.title }}</h3>
+            {% if block.settings.description != blank %}
+              <p>{{ block.settings.description }}</p>
+            {% endif %}
+            {% if block.settings.link_text and block.settings.link_url %}
+              <a href="{{ block.settings.link_url }}" class="link">{{ block.settings.link_text }}</a>
+            {% endif %}
           </div>
-        </div>
+        {% endif %}
       {% endfor %}
     </div>
   </div>
 </section>
 
-<style>
-.services-grid .card { height: 100%; border:1px solid #e5e7eb; border-radius:12px; padding:16px; }
-.services-grid .card__media img { width:48px; height:auto; }
-.services-grid .grid { row-gap: 16px; }
-@media(min-width:990px){ .grid--3-col-desktop{ display:grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap:16px } }
-</style>
-
 {% schema %}
 {
   "name": "Services grid",
-  "settings":[ { "type":"text", "id":"heading", "label":"Heading", "default":"Our Services" } ],
-  "blocks":[
-    { "type":"service", "name":"Service", "settings":[
-      { "type":"image_picker", "id":"icon", "label":"Icon (optional)" },
-      { "type":"text", "id":"title", "label":"Title", "default":"House & Apartment Cleaning" },
-      { "type":"textarea", "id":"text", "label":"Description", "default":"Standard & recurring cleanings for everyday freshness." }
-    ] }
+  "settings": [
+    { "type":"text", "id":"heading", "label":"Heading", "default":"Our Cleaning Services" },
+    { "type":"textarea", "id":"subheading", "label":"Subheading", "default":"Professional cleaning services for every need" }
   ],
-  "max_blocks": 12,
-  "presets":[
-    {
-      "name":"Services grid",
-      "blocks":[
-        { "type":"service", "settings":{"title":"House & Apartment Cleaning","text":"Standard & recurring cleanings for everyday freshness."}},
-        { "type":"service", "settings":{"title":"Move In / Move Out","text":"Get your deposit back or impress new tenants."}},
-        { "type":"service", "settings":{"title":"Deep Cleaning","text":"Top-to-bottom detail work for long-lasting cleanliness."}},
-        { "type":"service", "settings":{"title":"Commercial Cleaning","text":"Reliable office & storefront cleaning on your schedule."}},
-        { "type":"service", "settings":{"title":"Post-Construction","text":"Remove dust, debris, and bring the shine post-build."}},
-        { "type":"service", "settings":{"title":"Window Cleaning","text":"Streak-free glass that sparkles inside and out."}},
-        { "type":"service", "settings":{"title":"Holiday Cleanup","text":"Pre- or post-party sparkle without the stress."}},
-        { "type":"service", "settings":{"title":"Add-ons","text":"Declutter, laundry, pet deodorizer & more."}}
-      ]
-    }
-  ]
+  "blocks": [
+    { "type":"service_card", "name":"Service card", "settings":[
+      { "type":"text", "id":"icon", "label":"Icon (emoji or text)", "default":"🏠" },
+      { "type":"text", "id":"title", "label":"Title", "default":"House & Apartment Cleaning" },
+      { "type":"textarea", "id":"description", "label":"Description", "default":"Weekly / Biweekly, one-time." },
+      { "type":"text", "id":"link_text", "label":"Link text" },
+      { "type":"url", "id":"link_url", "label":"Link URL" }
+    ]}
+  ],
+  "presets": [{ "name":"Services grid", "blocks":[
+    {"type":"service_card"}, {"type":"service_card"}, {"type":"service_card"}, {"type":"service_card"},
+    {"type":"service_card"}, {"type":"service_card"}, {"type":"service_card"}, {"type":"service_card"}
+  ]}]
 }
 {% endschema %}

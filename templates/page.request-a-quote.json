@@ -1,4 +1,26 @@
 {
-  "sections": { "rq": { "type": "jobber-request", "settings": {} } },
-  "order": ["rq"]
+  "sections": {
+    "hero": {
+      "type": "hero-banner-split",
+      "settings": {
+        "preheading": "San Diego • Professional Cleaning",
+        "heading": "Get Your Free Quote",
+        "subheading": "Professional, insured, background-checked cleaners. Flat-rate packages. 100% Satisfaction Guarantee.",
+        "bg": "#e6f2fb",
+        "cta1_label": "Call Now",
+        "cta1_link": "tel:6198001453",
+        "cta1_color": "#ff7a00",
+        "cta2_label": "View Services",
+        "cta2_link": "/pages/services"
+      }
+    },
+    "jobber_form": {
+      "type": "jobber-request",
+      "settings": {
+        "heading": "Request Your Free Quote",
+        "subheading": "Fill out the form below and we'll get back to you with a custom quote within 24 hours."
+      }
+    }
+  },
+  "order": ["hero", "jobber_form"]
 }

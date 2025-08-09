@@ -1,41 +1,55 @@
-<section class="section reviews">
+<section class="section customer-reviews">
   <div class="page-width">
-    <h2 class="h2">{{ section.settings.heading | default: "What clients say" }}</h2>
-    <div class="grid grid--1-col grid--3-col-desktop">
+    <div class="section-header text-center">
+      <h2 class="h2">{{ section.settings.heading | default: 'Customer Reviews' }}</h2>
+    </div>
+    <div class="reviews-grid">
       {% for block in section.blocks %}
-        <div class="grid__item">
-          <blockquote class="review">
-            <p class="review__text">“{{ block.settings.quote }}”</p>
-            <cite class="review__author">— {{ block.settings.author }}</cite>
-          </blockquote>
-        </div>
+        {% if block.type == 'review' %}
+          <div class="review-card">
+            {% if block.settings.image != blank %}
+              <div class="review-card__image">
+                {{ block.settings.image | image_url: width: 300 | image_tag: loading: 'lazy' }}
+              </div>
+            {% endif %}
+            <div class="review-card__content">
+              {% if block.settings.rating > 0 %}
+                <div class="review-card__stars">
+                  {% for i in (1..5) %}
+                    {% if i <= block.settings.rating %}⭐{% else %}☆{% endif %}
+                  {% endfor %}
+                </div>
+              {% endif %}
+              {% if block.settings.quote != blank %}
+                <blockquote class="review-card__quote">"{{ block.settings.quote }}"</blockquote>
+              {% endif %}
+              {% if block.settings.author != blank %}
+                <cite class="review-card__author">— {{ block.settings.author }}</cite>
+              {% endif %}
+            </div>
+          </div>
+        {% endif %}
       {% endfor %}
     </div>
   </div>
 </section>
 
-<style>
-.review { border:1px solid #e5e7eb; padding:16px; border-radius:12px; height:100% }
-.review__text { margin:0 0 8px }
-.review__author { color:#6b7280; font-style: normal }
-</style>
-
 {% schema %}
 {
-  "name": "Reviews",
-  "settings":[ { "type":"text", "id":"heading", "label":"Heading", "default":"What clients say" } ],
-  "blocks":[
-    { "type":"review", "name":"Review", "settings":[
-      { "type":"textarea", "id":"quote", "label":"Quote", "default":"They helped us move out stress free!" },
-      { "type":"text", "id":"author", "label":"Author", "default":"Darlene" }
-    ] }
+  "name": "Customer reviews",
+  "settings": [
+    { "type":"text", "id":"heading", "label":"Heading", "default":"Customer Reviews" }
   ],
-  "presets":[
-    { "name":"Reviews", "blocks":[
-      { "type":"review", "settings":{"quote":"They helped us move out stress free!","author":"Darlene"} },
-      { "type":"review", "settings":{"quote":"Highly professional and responsive team.","author":"Mark R."} },
-      { "type":"review", "settings":{"quote":"Our office has never looked cleaner. 10/10.","author":"Franklin"} }
-    ] }
-  ]
+  "blocks": [
+    { "type":"review", "name":"Review", "settings":[
+      { "type":"image_picker", "id":"image", "label":"Photo (optional)" },
+      { "type":"range", "id":"rating", "label":"Star rating", "min":1, "max":5, "step":1, "default":5 },
+      { "type":"textarea", "id":"quote", "label":"Review quote", "default":"They healpus move outrout stress free!" },
+      { "type":"text", "id":"author", "label":"Author name", "default":"Darlive" }
+    ]}
+  ],
+  "presets": [{ "name":"Customer reviews", "blocks":[
+    {"type":"review"}, {"type":"review"}, {"type":"review"}
+  ]}]
 }
 {% endschema %}

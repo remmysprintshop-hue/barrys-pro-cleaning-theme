@@ -2,7 +2,7 @@
   <div class="page-width">
     <div class="grid grid--1-col grid--2-col-tablet">
       <div class="grid__item">
-        <h2 class="h2">{{ section.settings.title | default: "Why choose Barry’s Pro Cleaning?" }}</h2>
+        <h2 class="h2">{{ section.settings.title | default: "Why choose Barry's Pro Cleaning?" }}</h2>
         <ul class="why-contact__bullets">
           {% for block in section.blocks %}
             {% if block.type == 'bullet' %}
@@ -10,7 +10,7 @@
             {% endif %}
           {% endfor %}
         </ul>
-        {% if section.settings.about_label != blank and section.settings.about_url != blank %}
+        {% if section.settings.about_label and section.settings.about_url %}
           <a class="link animate-arrow" href="{{ section.settings.about_url }}">{{ section.settings.about_label }} →</a>
         {% endif %}
       </div>
@@ -30,28 +30,22 @@
   </div>
 </section>
 
-<style>
-.why-contact__bullets { margin: 12px 0 20px; padding-left: 18px; }
-.why-contact__bullets li { margin: 6px 0; }
-.why-contact__disclaimer { font-size: .85rem; color:#6b7280; margin-top: 8px }
-</style>
-
 {% schema %}
 {
   "name": "Why + Quote form",
   "settings": [
-    { "type":"text", "id":"title", "label":"Left heading", "default":"Why choose Barry’s Pro Cleaning?" },
+    { "type":"text", "id":"title", "label":"Left heading", "default":"Why choose Barry's Pro Cleaning?" },
     { "type":"text", "id":"about_label", "label":"About link label", "default":"Learn More — About Us" },
     { "type":"url", "id":"about_url", "label":"About link URL", "default":"/pages/about" },
     { "type":"text", "id":"form_heading", "label":"Form heading", "default":"Instant Quote Request" },
-    { "type":"textarea", "id":"disclaimer", "label":"Disclaimer", "default":"By submitting this form, you agree to receive promotional messages from Barry’s Pro Cleaning LLC. Msg frequency varies. Msg and data rates may apply." }
+    { "type":"textarea", "id":"disclaimer", "label":"Disclaimer", "default":"You agree to receive promotional messages from Barry's Pro Cleaning LLC. You also agree to our Terms of Service and Privacy Policy. Msg Frequency varies. Msg and Data Rates may apply. Reply STOP to end or HELP for Help." }
   ],
   "blocks":[
-    { "type":"bullet", "name":"Bullet", "settings":[ { "type":"text", "id":"text", "label":"Text", "default":"Locally owned & operated" } ] },
-    { "type":"bullet", "name":"Bullet", "settings":[ { "type":"text", "id":"text", "label":"Text", "default":"Background-checked, insured cleaners" } ] },
-    { "type":"bullet", "name":"Bullet", "settings":[ { "type":"text", "id":"text", "label":"Text", "default":"No hourly surprises — Flat rate packages" } ] },
-    { "type":"bullet", "name":"Bullet", "settings":[ { "type":"text", "id":"text", "label":"Text", "default":"100% Satisfaction Guarantee" } ] }
+    { "type":"bullet","name":"Bullet","settings":[{ "type":"text","id":"text","label":"Text","default":"Locally owned & operated" }]},
+    { "type":"bullet","name":"Bullet","settings":[{ "type":"text","id":"text","label":"Text","default":"Background-checked, insured cleaners" }]},
+    { "type":"bullet","name":"Bullet","settings":[{ "type":"text","id":"text","label":"Text","default":"No hourly surprises — Flat rate packages" }]},
+    { "type":"bullet","name":"Bullet","settings":[{ "type":"text","id":"text","label":"Text","default":"100% Satisfaction Guarantee" }]}
   ],
-  "presets":[ { "name":"Why + Quote form" } ]
+  "presets":[{ "name":"Why + Quote form", "blocks":[{"type":"bullet"},{"type":"bullet"},{"type":"bullet"},{"type":"bullet"}]}]
 }
 {% endschema %}

@@ -1,44 +1,55 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "hero_banner": {
-      "type": "hero-banner",
+      "type": "hero-banner-split",
       "settings": {
-        "heading": "Bringing Shine to Your Space",
-        "button_label_1": "Request a Quote",
-        "button_link_1": "/pages/request-a-quote",
-        "button_style_secondary_1": false,
-        "button_label_2": "Call Now",
-        "button_link_2": "tel:6198001453",
-        "button_style_secondary_2": true,
+        "preheading": "San Diego • Residential & Commercial",
+        "heading": "BRINGING SHINE TO YOUR SPACE",
+        "subheading": "Professional, insured, background-checked cleaners. Flat-rate packages. 100% Satisfaction Guarantee.",
+        "cta1_label": "REQUEST A QUOTE",
+        "cta1_link": "/pages/request-a-quote",
+        "cta1_color": "#ff7a00",
+        "cta2_label": "CALL NOW",
+        "cta2_link": "tel:6198001453",
         "image": "shopify://shop_images/FBFC46CF-F14E-4D19-A3C6-8B770C19532B.png"
       }
     },
     "why_choose_us_and_form": {
       "type": "why-choose-contact",
-      "settings": {}
+      "settings": {
+        "title": "WHY CHOOSE US",
+        "form_heading": "INSTANT QUOTE REQUEST"
+      }
     },
     "services_grid": {
       "type": "services-grid",
-      "settings": {}
+      "settings": {
+        "heading": "OUR CLEANING SERVICES"
+      }
     },
     "customer_reviews": {
       "type": "customer-reviews",
-      "settings": {}
+      "settings": {
+        "heading": "CUSTOMER REVIEWS"
+      }
+    },
+    "sms_popup": {
+      "type": "sms-optin-popup",
+      "settings": {
+        "heading": "Get cleaning tips & exclusive offers!",
+        "button": "Subscribe",
+        "delay": 5,
+        "cooldown_days": 7,
+        "home_only": false,
+        "consent": "You agree to receive promotional messages from Barry's Pro Cleaning LLC. You also agree to our Terms of Service and Privacy Policy. Msg Frequency varies. Msg & Data Rates may apply. Reply STOP to end or HELP for Help."
+      }
     }
   },
   "order": [
     "hero_banner",
-    "why_choose_us_and_form",
+    "why_choose_us_and_form", 
     "services_grid",
-    "customer_reviews"
+    "customer_reviews",
+    "sms_popup"
   ]
 }

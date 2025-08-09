@@ -41,7 +41,7 @@
        "service_area": {
          "type": "column",
          "settings": {
-           "title": "�� Service Area",
+           "title": "📍 Service Area",
            "text": "<p><strong>San Diego County</strong></p><p>Residential & Commercial</p>",
            "link_label": "View Services",
            "link": "/pages/services"

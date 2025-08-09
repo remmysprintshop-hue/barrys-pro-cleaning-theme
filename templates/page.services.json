@@ -23,7 +23,7 @@
        "service1": {
          "type": "service_card",
          "settings": {
-           "icon": "��",
+           "icon": "🏠",
            "title": "House & Apartment Cleaning",
            "description": "Regular weekly or bi-weekly cleaning for your home. Includes all standard cleaning tasks to keep your space spotless.",
            "link_text": "Learn More",

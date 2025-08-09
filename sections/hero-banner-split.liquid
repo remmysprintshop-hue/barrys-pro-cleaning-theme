@@ -1,0 +1,57 @@
+<section class="section hero-split" style="background: {{ section.settings.bg | default: '#e6f2fb' }}">
+  <div class="page-width">
+    <div class="hero-split__grid">
+      <!-- Left: character art -->
+      <div class="hero-split__art">
+        {% if section.settings.image %}
+          {{ section.settings.image
+            | image_url: width: 1600
+            | image_tag: loading: 'eager', fetchpriority: 'high', class: 'hero-split__image', alt: section.settings.image_alt }}
+        {% endif %}
+        <span class="hero-split__floor" aria-hidden="true"></span>
+      </div>
+
+      <!-- Right: content -->
+      <div class="hero-split__content">
+        <span class="badge-licensed">Licensed &amp; Insured</span>
+        {% if section.settings.preheading %}<p class="hero-split__eyebrow">{{ section.settings.preheading }}</p>{% endif %}
+        <h1 class="h0">{{ section.settings.heading | default: 'Bringing Shine to Your Space' }}</h1>
+        {% if section.settings.subheading %}<p class="hero-split__subtext">{{ section.settings.subheading }}</p>{% endif %}
+
+        <div class="hero-split__ctas">
+          {% if section.settings.cta1_label and section.settings.cta1_link %}
+            <a href="{{ section.settings.cta1_link }}" class="button button--primary"
+               style="background: {{ section.settings.cta1_color | default: '#ff7a00' }}; border-color: {{ section.settings.cta1_color | default: '#ff7a00' }}">
+              {{ section.settings.cta1_label }}
+            </a>
+          {% endif %}
+          {% if section.settings.cta2_label and section.settings.cta2_link %}
+            <a href="{{ section.settings.cta2_link }}" class="button button--secondary">
+              {{ section.settings.cta2_label }}
+            </a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero split",
+  "settings": [
+    { "type":"image_picker","id":"image","label":"Characters image (PNG/SVG, transparent)" },
+    { "type":"text","id":"image_alt","label":"Image alt (leave blank if decorative)","default":"" },
+    { "type":"color","id":"bg","label":"Background","default":"#e6f2fb" },
+    { "type":"text","id":"preheading","label":"Preheading","default":"San Diego • Residential & Commercial" },
+    { "type":"text","id":"heading","label":"Heading","default":"Bringing Shine to Your Space" },
+    { "type":"textarea","id":"subheading","label":"Subheading","default":"Professional, insured, background-checked cleaners. Flat-rate packages. 100% Satisfaction Guarantee." },
+    { "type":"text","id":"cta1_label","label":"CTA 1 label","default":"Request a Quote" },
+    { "type":"url","id":"cta1_link","label":"CTA 1 link","default":"/pages/request-a-quote" },
+    { "type":"color","id":"cta1_color","label":"CTA 1 color","default":"#ff7a00" },
+    { "type":"text","id":"cta2_label","label":"CTA 2 label","default":"Call Now" },
+    { "type":"url","id":"cta2_link","label":"CTA 2 link","default":"tel:6198001453" }
+  ],
+  "presets":[{ "name":"Hero split" }]
+}
+{% endschema %}

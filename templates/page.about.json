@@ -1,0 +1,13 @@
+{
+  "sections": {
+    "main": {
+      "type": "rich-text",
+      "blocks": [
+        { "type": "heading", "settings": { "heading": "About Barry’s Pro Cleaning LLC" } },
+        { "type": "text", "settings": { "text": "<p>San Diego-based, locally owned and operated. Background-checked, insured cleaners. Flat-rate transparency and a 100% Satisfaction Guarantee.</p>" } }
+      ],
+      "settings": { "color_scheme": "background-1" }
+    }
+  },
+  "order": ["main"]
+}

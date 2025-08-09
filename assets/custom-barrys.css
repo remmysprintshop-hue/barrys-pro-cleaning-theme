@@ -1,1 +1,4 @@
-/* Barry's custom tweaks */
+/* Barry's Pro Cleaning tweaks */
+.button--primary { color:#fff }
+.header__heading a[href^="tel:"] { font-weight: 600; }
+/* Add more brand styles below */

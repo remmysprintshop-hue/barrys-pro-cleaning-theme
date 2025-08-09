@@ -1,71 +1,49 @@
-{
-"sections": {
-"hero": {
-"type": "image-banner",
-"blocks": {
-"heading": {
-"type": "heading",
-"settings": {
-"heading": "Bringing Shine to Your Space",
-"heading_size": "h1"
-}
-},
-"button": {
-"type": "buttons",
-"settings": {
-"button_label_1": "Request a Quote",
-"button_link_1": "/pages/request-a-quote",
-"button_style_secondary_1": false,
-"button_label_2": "Call Now",
-"button_link_2": "tel:6198001453",
-"button_style_secondary_2": true
-}
-}
-},
-"block_order": [
-"heading",
-"button"
-],
-"settings": {
-"image_overlay_opacity": 30,
-"image_height": "medium",
-"image_behavior": "none",
-"desktop_content_position": "center-center",
-"desktop_content_alignment": "center",
-"show_text_box": true,
-"color_scheme": "scheme-3",
-"stack_images_on_mobile": true,
-"mobile_content_alignment": "center",
-"show_text_below": false
-}
-},
-"services": {
-"type": "rich-text",
-"settings": {}
-},
-"jobber_form": {
-"type": "custom-liquid",
-"settings": {
-"custom_liquid": "By submitting this form, you agree to receive promotional messages from Barry’s Pro Cleaning LLC. Msg frequency varies. Msg & Data Rates may apply. Reply STOP to end or HELP for help."
-}
-},
-"sms_optin_popup": {
-"type": "custom-liquid",
-"settings": {
-"custom_liquid": "\n#sms-optin-popup {\n  position: fixed;\n  bottom: 20px;\n  right: 20px;\n  background: #ffffff;\n  border: 1px solid #ccc;\n  border-radius: 10px;\n  padding: 20px;\n  box-shadow: 0 0 15px rgba(0,0,0,0.2);\n  z-index: 1000;\n  width: 300px;\n  display: none;\n}\n#sms-optin-popup h4 { margin: 0 0 10px; font-size: 18px; }\n#sms-optin-popup form input { width: 100%; margin-bottom: 10px; padding: 8px; }\n#sms-optin-popup form button { width: 100%; padding: 10px; background: #ff6a00; color: #fff; border: none; cursor: pointer; }\n#sms-optin-popup .consent { font-size: 10px; color: #666; }\n\n\n  Get Exclusive Offers\n  \n    \n    \n    Subscribe\n  \n  You agree to receive promotional messages from Barry’s Pro Cleaning LLC. You also agree to our Terms of Service and Privacy Policy. Msg Frequency varies. Msg and Data Rates may apply. Reply STOP to end or HELP for Help.\n\n\n  window.addEventListener('DOMContentLoaded', function () {\n    setTimeout(function () {\n      document.getElementById('sms-optin-popup').style.display = 'block';\n    }, 4000);\n  });\n"
-}
-},
-"reviews": {
-"type": "rich-text",
-"settings": {}
-}
-},
-"order": [
-"hero",
-"services",
-"jobber_form",
-"sms_optin_popup",
-"reviews"
-]
-}
+{% comment %}
+  Simple bottom-right popup that appears after delay. Submits to /contact.
+{% endcomment %}
+<div id="sms-optin" class="sms-optin" hidden>
+  <button class="sms-optin__close" aria-label="Close">×</button>
+  <h3 class="h4">{{ section.settings.heading | default: "Get cleaning tips & offers" }}</h3>
+  <form method="post" action="/contact#ContactFooter" accept-charset="UTF-8">
+    <input type="hidden" name="form_type" value="contact">
+    <input type="text" name="contact[name]" placeholder="Your name" required>
+    <input type="tel" name="contact[phone]" placeholder="Mobile number" required>
+    <input type="hidden" name="contact[body]" value="SMS opt-in via popup">
+    <button class="button button--primary" style="background:#ff7a00;border-color:#ff7a00">{{ section.settings.button | default: "Subscribe" }}</button>
+  </form>
+  <p class="sms-optin__fineprint">{{ section.settings.consent | default: "You agree to receive promotional messages from Barry’s Pro Cleaning LLC. You also agree to our Terms of Service and Privacy Policy. Msg frequency varies. Msg and data rates may apply. Reply STOP to end or HELP for Help." }}</p>
+</div>
 
+<style>
+.sms-optin{ position:fixed; right:16px; bottom:16px; width: 320px; z-index:50; background:#fff; border:1px solid #e5e7eb; border-radius:12px; padding:16px; box-shadow:0 10px 24px rgba(0,0,0,.08); }
+.sms-optin input{ width:100%; margin-bottom:8px }
+.sms-optin__close{ position:absolute; top:6px; right:8px; background:transparent; border:none; font-size:20px; cursor:pointer }
+.sms-optin__fineprint{ font-size:.75rem; color:#6b7280; margin-top:8px }
+</style>
+
+<script>
+(function(){
+  var DELAY = {{ section.settings.delay | default: 5 | times: 1000 }};
+  var key = 'sms_optin_closed_v1';
+  function show(){ var el = document.getElementById('sms-optin'); if(el){ el.hidden = false; } }
+  function hide(){ var el = document.getElementById('sms-optin'); if(el){ el.hidden = true; localStorage.setItem(key, '1'); } }
+    setTimeout(show, DELAY);
+  }
+  document.addEventListener('click', function(e){
+    if(e.target && e.target.classList.contains('sms-optin__close')) hide();
+  });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "SMS opt-in",
+  "settings":[
+    { "type":"text", "id":"heading", "label":"Heading", "default":"Get cleaning tips & offers" },
+    { "type":"text", "id":"button", "label":"Button label", "default":"Subscribe" },
+    { "type":"range", "id":"delay", "label":"Delay (seconds)", "min": 1, "max": 20, "step": 1, "default": 5 },
+    { "type":"textarea", "id":"consent", "label":"Consent text" }
+  ],
+  "presets":[ { "name":"SMS opt-in" } ]
+}
+{% endschema %}

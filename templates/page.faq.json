@@ -1,0 +1,13 @@
+{
+  "sections": {
+    "main": {
+      "type": "rich-text",
+      "blocks": [
+        { "type": "heading", "settings": { "heading": "Frequently Asked Questions" } },
+        { "type": "text", "settings": { "text": "<p><strong>What areas do you serve?</strong><br>San Diego and surrounding neighborhoods.</p><p><strong>Do you bring supplies?</strong><br>Yes — professional, eco-friendly products and equipment.</p><p><strong>Do you offer flat-rate packages?</strong><br>Yes — no hourly surprises.</p>" } }
+      ],
+      "settings": { "color_scheme": "background-1" }
+    }
+  },
+  "order": ["main"]
+}

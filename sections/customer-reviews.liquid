@@ -1,0 +1,41 @@
+<section class="section reviews">
+  <div class="page-width">
+    <h2 class="h2">{{ section.settings.heading | default: "What clients say" }}</h2>
+    <div class="grid grid--1-col grid--3-col-desktop">
+      {% for block in section.blocks %}
+        <div class="grid__item">
+          <blockquote class="review">
+            <p class="review__text">“{{ block.settings.quote }}”</p>
+            <cite class="review__author">— {{ block.settings.author }}</cite>
+          </blockquote>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<style>
+.review { border:1px solid #e5e7eb; padding:16px; border-radius:12px; height:100% }
+.review__text { margin:0 0 8px }
+.review__author { color:#6b7280; font-style: normal }
+</style>
+
+{% schema %}
+{
+  "name": "Reviews",
+  "settings":[ { "type":"text", "id":"heading", "label":"Heading", "default":"What clients say" } ],
+  "blocks":[
+    { "type":"review", "name":"Review", "settings":[
+      { "type":"textarea", "id":"quote", "label":"Quote", "default":"They helped us move out stress free!" },
+      { "type":"text", "id":"author", "label":"Author", "default":"Darlene" }
+    ] }
+  ],
+  "presets":[
+    { "name":"Reviews", "blocks":[
+      { "type":"review", "settings":{"quote":"They helped us move out stress free!","author":"Darlene"} },
+      { "type":"review", "settings":{"quote":"Highly professional and responsive team.","author":"Mark R."} },
+      { "type":"review", "settings":{"quote":"Our office has never looked cleaner. 10/10.","author":"Franklin"} }
+    ] }
+  ]
+}
+{% endschema %}

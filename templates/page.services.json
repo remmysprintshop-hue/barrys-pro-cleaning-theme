@@ -1,0 +1,21 @@
+{
+  "sections": {
+    "main": {
+      "type": "rich-text",
+      "blocks": [
+        { "type": "heading", "settings": { "heading": "Weekly & Bi-Weekly Standard Cleaning" } },
+        { "type": "text", "settings": { "text": "<p>Consistent Care for a Constantly Clean Home. Our weekly and bi-weekly standard cleaning services keep your space fresh and spotless year-round.</p>" } },
+        { "type": "heading", "settings": { "heading": "Deep Cleaning Service" } },
+        { "type": "text", "settings": { "text": "<p>A top-to-bottom detail clean for long-lasting freshness.</p>" } },
+        { "type": "heading", "settings": { "heading": "Move-Out Cleaning" } },
+        { "type": "text", "settings": { "text": "<p>Leave it spotless for the next chapter.</p>" } },
+        { "type": "heading", "settings": { "heading": "Post-Construction Cleaning" } },
+        { "type": "text", "settings": { "text": "<p>From job site to move-in ready.</p>" } },
+        { "type": "heading", "settings": { "heading": "Commercial Cleaning" } },
+        { "type": "text", "settings": { "text": "<p>Reliable office & storefront cleaning on your schedule.</p>" } }
+      ],
+      "settings": { "color_scheme": "background-1" }
+    }
+  },
+  "order": ["main"]
+}

@@ -1,0 +1,4 @@
+{
+  "sections": { "rq": { "type": "jobber-request", "settings": {} } },
+  "order": ["rq"]
+}

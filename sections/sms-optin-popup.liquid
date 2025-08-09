@@ -1,0 +1,71 @@
+{
+"sections": {
+"hero": {
+"type": "image-banner",
+"blocks": {
+"heading": {
+"type": "heading",
+"settings": {
+"heading": "Bringing Shine to Your Space",
+"heading_size": "h1"
+}
+},
+"button": {
+"type": "buttons",
+"settings": {
+"button_label_1": "Request a Quote",
+"button_link_1": "/pages/request-a-quote",
+"button_style_secondary_1": false,
+"button_label_2": "Call Now",
+"button_link_2": "tel:6198001453",
+"button_style_secondary_2": true
+}
+}
+},
+"block_order": [
+"heading",
+"button"
+],
+"settings": {
+"image_overlay_opacity": 30,
+"image_height": "medium",
+"image_behavior": "none",
+"desktop_content_position": "center-center",
+"desktop_content_alignment": "center",
+"show_text_box": true,
+"color_scheme": "scheme-3",
+"stack_images_on_mobile": true,
+"mobile_content_alignment": "center",
+"show_text_below": false
+}
+},
+"services": {
+"type": "rich-text",
+"settings": {}
+},
+"jobber_form": {
+"type": "custom-liquid",
+"settings": {
+"custom_liquid": "By submitting this form, you agree to receive promotional messages from Barry’s Pro Cleaning LLC. Msg frequency varies. Msg & Data Rates may apply. Reply STOP to end or HELP for help."
+}
+},
+"sms_optin_popup": {
+"type": "custom-liquid",
+"settings": {
+"custom_liquid": "\n#sms-optin-popup {\n  position: fixed;\n  bottom: 20px;\n  right: 20px;\n  background: #ffffff;\n  border: 1px solid #ccc;\n  border-radius: 10px;\n  padding: 20px;\n  box-shadow: 0 0 15px rgba(0,0,0,0.2);\n  z-index: 1000;\n  width: 300px;\n  display: none;\n}\n#sms-optin-popup h4 { margin: 0 0 10px; font-size: 18px; }\n#sms-optin-popup form input { width: 100%; margin-bottom: 10px; padding: 8px; }\n#sms-optin-popup form button { width: 100%; padding: 10px; background: #ff6a00; color: #fff; border: none; cursor: pointer; }\n#sms-optin-popup .consent { font-size: 10px; color: #666; }\n\n\n  Get Exclusive Offers\n  \n    \n    \n    Subscribe\n  \n  You agree to receive promotional messages from Barry’s Pro Cleaning LLC. You also agree to our Terms of Service and Privacy Policy. Msg Frequency varies. Msg and Data Rates may apply. Reply STOP to end or HELP for Help.\n\n\n  window.addEventListener('DOMContentLoaded', function () {\n    setTimeout(function () {\n      document.getElementById('sms-optin-popup').style.display = 'block';\n    }, 4000);\n  });\n"
+}
+},
+"reviews": {
+"type": "rich-text",
+"settings": {}
+}
+},
+"order": [
+"hero",
+"services",
+"jobber_form",
+"sms_optin_popup",
+"reviews"
+]
+}
+

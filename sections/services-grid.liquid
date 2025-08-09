@@ -1,0 +1,116 @@
+<section class="services-grid page-width">
+  <div style="text-align: center; margin-bottom: 40px;">
+    <h2 style="font-size: 2.2rem;">Our Cleaning Services</h2>
+    <p style="color: #555;">Tailored solutions for homes, offices, move-outs & more.</p>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px;">
+    {% for block in section.blocks %}
+      <div style="text-align: center; padding: 20px; border: 1px solid #eee; border-radius: 10px; background: #fff;">
+        {% if block.settings.icon != blank %}
+          <img src="{{ block.settings.icon | image_url: width: 100 }}" alt="" style="height: 64px; margin-bottom: 12px;" loading="lazy">
+        {% endif %}
+        <h3 style="font-size: 1.25rem; margin-bottom: 10px;">{{ block.settings.title }}</h3>
+        <p style="font-size: 0.95rem; color: #666;">{{ block.settings.description }}</p>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Services Grid",
+  "tag": "section",
+  "class": "section",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "service",
+      "name": "Service",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Service Icon"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Service Title",
+          "default": "Deep Cleaning"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Thorough cleaning for homes, offices, and high-traffic areas."
+        }
+      ]
+    }
+  ],
+  "max_blocks": 8,
+  "presets": [
+    {
+      "name": "Services Grid",
+      "blocks": [
+        {
+          "type": "service",
+          "settings": {
+            "title": "House & Apartment Cleaning",
+            "description": "Standard & recurring cleanings for everyday freshness."
+          }
+        },
+        {
+          "type": "service",
+          "settings": {
+            "title": "Move In / Move Out",
+            "description": "Get your deposit back or impress your new tenants."
+          }
+        },
+        {
+          "type": "service",
+          "settings": {
+            "title": "Deep Cleaning",
+            "description": "Top-to-bottom detail work for long-lasting cleanliness."
+          }
+        },
+        {
+          "type": "service",
+          "settings": {
+            "title": "Commercial Cleaning",
+            "description": "Reliable office & storefront cleaning on your schedule."
+          }
+        },
+        {
+          "type": "service",
+          "settings": {
+            "title": "Post-Construction",
+            "description": "Remove dust, debris, and bring the shine post-build."
+          }
+        },
+        {
+          "type": "service",
+          "settings": {
+            "title": "Window Cleaning",
+            "description": "Streak-free glass that sparkles inside and out."
+          }
+        },
+        {
+          "type": "service",
+          "settings": {
+            "title": "Holiday Cleanup",
+            "description": "Pre- or post-party sparkle without the stress."
+          }
+        },
+        {
+          "type": "service",
+          "settings": {
+            "title": "Add-ons",
+            "description": "Declutter, laundry, pet deodorizer & more."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

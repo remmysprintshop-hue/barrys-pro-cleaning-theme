@@ -1,0 +1,88 @@
+<section class="why-choose-contact page-width">
+  <div style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between; align-items: flex-start; padding: 60px 0;">
+    
+    <!-- Left: Why Choose Us -->
+    <div style="flex: 1; min-width: 300px;">
+      <h2 style="font-size: 2rem; margin-bottom: 20px;">Why Choose Us</h2>
+      <ul style="line-height: 2em; padding-left: 20px; font-size: 1.1rem;">
+        <li>{{ section.settings.bullet_1 }}</li>
+        <li>{{ section.settings.bullet_2 }}</li>
+        <li>{{ section.settings.bullet_3 }}</li>
+        <li>{{ section.settings.bullet_4 }}</li>
+      </ul>
+      {% if section.settings.about_us_link != blank %}
+        <p style="margin-top: 20px;">
+          <a href="{{ section.settings.about_us_link }}" class="button button--secondary">Learn More — About Us</a>
+        </p>
+      {% endif %}
+    </div>
+
+    <!-- Right: Jobber Form -->
+    <div style="flex: 1; min-width: 300px;">
+      <h3 style="font-size: 1.5rem; margin-bottom: 15px;">{{ section.settings.form_heading }}</h3>
+      <div id="cde0e6c9-6256-4c85-812a-cc4f328218f9"></div>
+      <link rel="stylesheet" href="https://d3ey4dbjkt2f6s.cloudfront.net/assets/external/work_request_embed.css" media="screen" />
+      <script src="https://d3ey4dbjkt2f6s.cloudfront.net/assets/static_link/work_request_embed_snippet.js"
+              clienthub_id="cde0e6c9-6256-4c85-812a-cc4f328218f9"
+              form_url="https://clienthub.getjobber.com/client_hubs/cde0e6c9-6256-4c85-812a-cc4f328218f9/public/work_request/embedded_work_request_form"></script>
+      <p style="font-size: 0.85rem; margin-top: 10px; color: #555;">
+        {{ section.settings.form_disclaimer }}
+      </p>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Why Choose + Quote",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "bullet_1",
+      "label": "Bullet Point 1",
+      "default": "Locally owned & operated"
+    },
+    {
+      "type": "text",
+      "id": "bullet_2",
+      "label": "Bullet Point 2",
+      "default": "Background-checked, insured cleaners"
+    },
+    {
+      "type": "text",
+      "id": "bullet_3",
+      "label": "Bullet Point 3",
+      "default": "No hourly surprises — Flat rate packages"
+    },
+    {
+      "type": "text",
+      "id": "bullet_4",
+      "label": "Bullet Point 4",
+      "default": "100% Satisfaction Guarantee"
+    },
+    {
+      "type": "url",
+      "id": "about_us_link",
+      "label": "Link to About Us Page"
+    },
+    {
+      "type": "text",
+      "id": "form_heading",
+      "label": "Form Heading",
+      "default": "Instant Quote Request"
+    },
+    {
+      "type": "textarea",
+      "id": "form_disclaimer",
+      "label": "SMS Disclaimer",
+      "default": "By providing your phone number, you agree to receive promotional messages from Barry’s Pro Cleaning LLC. Message and data rates may apply."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Why Choose + Quote"
+    }
+  ]
+}
+{% endschema %}

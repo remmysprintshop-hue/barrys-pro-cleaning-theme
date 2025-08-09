@@ -1,0 +1,44 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero_banner": {
+      "type": "hero-banner",
+      "settings": {
+        "heading": "Bringing Shine to Your Space",
+        "button_label_1": "Request a Quote",
+        "button_link_1": "/pages/request-a-quote",
+        "button_style_secondary_1": false,
+        "button_label_2": "Call Now",
+        "button_link_2": "tel:6198001453",
+        "button_style_secondary_2": true,
+        "image": "shopify://shop_images/FBFC46CF-F14E-4D19-A3C6-8B770C19532B.png"
+      }
+    },
+    "why_choose_us_and_form": {
+      "type": "why-choose-contact",
+      "settings": {}
+    },
+    "services_grid": {
+      "type": "services-grid",
+      "settings": {}
+    },
+    "customer_reviews": {
+      "type": "customer-reviews",
+      "settings": {}
+    }
+  },
+  "order": [
+    "hero_banner",
+    "why_choose_us_and_form",
+    "services_grid",
+    "customer_reviews"
+  ]
+}

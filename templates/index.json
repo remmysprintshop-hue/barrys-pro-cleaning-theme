@@ -193,8 +193,8 @@
     "sms_optin_popup": {
       "type": "sms-optin-popup",
       "settings": {
-        "delay": 4,
-        "cooldown_days": 14,
+        "delay": 2,
+        "cooldown_days": 1,
         "home_only": true,
         "heading": "Get Exclusive Offers",
         "button": "Subscribe",

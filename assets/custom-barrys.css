@@ -1,1 +1,93 @@
 /* Barry's custom tweaks */
+
+/* Hero Split Section Styles */
+.hero-split {
+  background: #87CEEB !important;
+  padding: 0;
+  min-height: 500px;
+}
+
+.hero-split .page-width {
+  max-width: 100%;
+  padding: 0;
+}
+
+.hero-split .grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  min-height: 500px;
+  gap: 0;
+}
+
+.hero-split__image {
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: cover;
+}
+
+.hero-split__content {
+  padding: 2rem;
+  background: rgba(255,255,255,0.9);
+  margin: 2rem;
+  border-radius: 8px;
+}
+
+.badge-licensed {
+  display: inline-block;
+  font-weight: 700;
+  background: #0a2141;
+  color: #fff;
+  padding: .35rem .6rem;
+  border-radius: .5rem;
+  margin-bottom: 1rem;
+}
+
+.hero-split__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: #6b7280;
+  margin: 0 0 8px;
+}
+
+.hero-split .h0 {
+  color: #0a2141;
+  font-size: 3rem;
+  margin: 1rem 0;
+  line-height: 1.1;
+}
+
+.hero-split__subtext {
+  color: #374151;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero-split__ctas {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.hero-split__ctas .button {
+  padding: 12px 24px;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 600;
+  display: inline-block;
+}
+
+@media (max-width: 768px) {
+  .hero-split .grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .hero-split__content {
+    margin: 1rem;
+  }
+  
+  .hero-split .h0 {
+    font-size: 2rem;
+  }
+}

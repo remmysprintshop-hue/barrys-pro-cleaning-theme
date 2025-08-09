@@ -3,7 +3,7 @@
     "hero_split": {
       "type": "hero-banner-split",
       "settings": {
-        "preheading": "San Diego • Residential & Commercial",
+        "preheading": "San Diego \u2022 Residential & Commercial",
         "heading": "BRINGING SHINE TO YOUR SPACE",
         "subheading": "Professional, insured, background-checked cleaners. Flat-rate packages. 100% Satisfaction Guarantee.",
         "bg": "#e6f2fb",
@@ -33,7 +33,7 @@
         "bullet3": {
           "type": "bullet",
           "settings": {
-            "text": "No hourly surprises — Flat rate packages"
+            "text": "No hourly surprises \u2014 Flat rate packages"
           }
         },
         "bullet4": {
@@ -43,10 +43,15 @@
           }
         }
       },
-      "block_order": ["bullet1", "bullet2", "bullet3", "bullet4"],
+      "block_order": [
+        "bullet1",
+        "bullet2",
+        "bullet3",
+        "bullet4"
+      ],
       "settings": {
         "title": "WHY CHOOSE US",
-        "about_label": "Learn more — About Us",
+        "about_label": "Learn more \u2014 About Us",
         "about_url": "/pages/about",
         "form_heading": "INSTANT QUOTE REQUEST"
       }
@@ -57,7 +62,7 @@
         "service1": {
           "type": "service_card",
           "settings": {
-            "icon": "🏠",
+            "icon": "\ud83c\udfe0",
             "title": "House & Apartment Cleaning",
             "description": "Weekly / Biweekly, one-time."
           }
@@ -65,7 +70,7 @@
         "service2": {
           "type": "service_card",
           "settings": {
-            "icon": "📦",
+            "icon": "\ud83d\udce6",
             "title": "Move In/Out Cleaning",
             "description": "No hourly surprise fees."
           }
@@ -73,7 +78,7 @@
         "service3": {
           "type": "service_card",
           "settings": {
-            "icon": "🧽",
+            "icon": "\ud83e\uddfd",
             "title": "Deep Cleaning",
             "description": "At cost-1"
           }
@@ -81,7 +86,7 @@
         "service4": {
           "type": "service_card",
           "settings": {
-            "icon": "🪟",
+            "icon": "\ud83e\ude9f",
             "title": "Window Cleaning",
             "description": "Post Construction Junk Removal"
           }
@@ -89,7 +94,7 @@
         "service5": {
           "type": "service_card",
           "settings": {
-            "icon": "🏢",
+            "icon": "\ud83c\udfe2",
             "title": "Commercial Cleaning",
             "description": "Office and commercial spaces"
           }
@@ -97,7 +102,7 @@
         "service6": {
           "type": "service_card",
           "settings": {
-            "icon": "🔨",
+            "icon": "\ud83d\udd28",
             "title": "Post-Construction",
             "description": "Construction cleanup services"
           }
@@ -105,7 +110,7 @@
         "service7": {
           "type": "service_card",
           "settings": {
-            "icon": "🎄",
+            "icon": "\ud83c\udf84",
             "title": "Holiday Cleanup",
             "description": "Thanksgiving, Christmas."
           }
@@ -113,13 +118,22 @@
         "service8": {
           "type": "service_card",
           "settings": {
-            "icon": "➕",
+            "icon": "\u2795",
             "title": "Add-ons",
             "description": "Declure, For: Basic/litter Laundry*, Fold"
           }
         }
       },
-      "block_order": ["service1", "service2", "service3", "service4", "service5", "service6", "service7", "service8"],
+      "block_order": [
+        "service1",
+        "service2",
+        "service3",
+        "service4",
+        "service5",
+        "service6",
+        "service7",
+        "service8"
+      ],
       "settings": {
         "heading": "OUR CLEANING SERVICES"
       }
@@ -152,7 +166,11 @@
           }
         }
       },
-      "block_order": ["review1", "review2", "review3"],
+      "block_order": [
+        "review1",
+        "review2",
+        "review3"
+      ],
       "settings": {
         "heading": "CUSTOMER REVIEWS"
       }
@@ -167,7 +185,23 @@
         "home_only": false,
         "consent": "You agree to receive promotional messages from Barry's Pro Cleaning LLC. You also agree to our Terms of Service and Privacy Policy. Msg Frequency varies. Msg & Data Rates may apply. Reply STOP to end or HELP for Help."
       }
+    },
+    "jobber_form": {
+      "type": "jobber-request",
+      "settings": {}
+    },
+    "sms_optin_popup": {
+      "type": "sms-optin-popup",
+      "settings": {}
     }
   },
-  "order": ["hero_split", "why_contact", "services", "reviews", "sms_popup"]
+  "order": [
+    "hero_split",
+    "why_contact",
+    "services",
+    "reviews",
+    "sms_popup",
+    "jobber_form",
+    "sms_optin_popup"
+  ]
 }

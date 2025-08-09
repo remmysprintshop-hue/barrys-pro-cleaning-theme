@@ -200,9 +200,19 @@
         "button": "Subscribe",
         "consent": "You agree to receive promotional messages from Barry\u2019s Pro Cleaning LLC. Msg frequency varies. Msg & data rates may apply. Reply STOP to end or HELP for help."
       }
+    },
+    "sync_test": {
+      "type": "rich-text",
+      "settings": {
+        "heading": "SYNC TEST #6282 \u2014 REMOVE AFTER",
+        "paragraph": "",
+        "desktop_content_position": "center",
+        "content_alignment": "center"
+      }
     }
   },
   "order": [
+    "sync_test",
     "hero_split",
     "why_contact",
     "services",
